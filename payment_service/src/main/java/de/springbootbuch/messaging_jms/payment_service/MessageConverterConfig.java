@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
+import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
 
 /**
@@ -17,8 +18,8 @@ import org.springframework.jms.support.converter.MessageType;
 public class MessageConverterConfig {
 	
 	@Bean
-	public MappingJackson2MessageConverter messageConverter() {
-		 MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
+	public MessageConverter messageConverter() {
+		MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
 		converter.setTargetType(MessageType.TEXT);
 		converter.setTypeIdPropertyName("eventType");
 		final Map<String, Class<?>> f = new HashMap<>();
