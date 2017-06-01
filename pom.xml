@@ -61,6 +61,52 @@
 			</plugin>
 		</plugins>
 	</build>
+    
+	<profiles>
+		<profile>
+			<id>use-docker-for-it</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<executions>
+							<!-- Runs before and after integration test -->
+							<execution>
+								<id>prepare-activemq</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>start</goal>
+								</goals>
+								<configuration>
+									<images>
+										<image>
+											<alias>activemq</alias>
+											<run>
+												<ports>
+													<port>activemq-it.port:61616</port>
+												</ports>
+											</run>
+										</image>
+									</images>
+								</configuration>
+							</execution>
+							<execution>
+								<id>remove-prepare</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<!-- DELETE ME -->
 	<repositories>
