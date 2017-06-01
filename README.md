@@ -28,6 +28,12 @@ Alternative destination name based routing in effect:
 ./mvnw spring-boot:run -Drun.profiles=destination-router
 ```
 
+Alternative destination management based on separate templates
+
+```
+./mvnw spring-boot:run -Drun.profiles=distinct-infrastructure
+```
+
 ## Complex scenario
 
 Start the moduls `film_rental` and `payment` via 
