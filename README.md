@@ -6,7 +6,31 @@ This project needs a local ActiveMQ instance. If you don't have one, you can sta
 ./mvnw docker:run
 ```
 
-After that, start both modules via 
+## Simple examples
+
+Goto module `simple`.
+
+Use default Spring boot configuration and talk to a queue domain
+
+```
+./mvnw spring-boot:run
+```
+
+See the effects of setting `pub-sub-domain` to true
+
+```
+./mvnw spring-boot:run -Drun.profiles=pubsub
+```
+
+Alternative destination name based routing in effect:
+
+```
+./mvnw spring-boot:run -Drun.profiles=destination-router
+```
+
+## Complex scenario
+
+Start the moduls `film_rental` and `payment` via 
 
 ```
 cd film_rental
