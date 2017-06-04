@@ -28,7 +28,9 @@ public class Application {
 	}
 
 	@Bean
-	ObjectMapper objectMapper(final JsonComponentModule jsonComponentModule) {
+	ObjectMapper objectMapper(
+		final JsonComponentModule jsonComponentModule
+	) {
 		final ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.registerModule(jsonComponentModule);
 		return objectMapper;
@@ -40,14 +42,19 @@ public class Application {
 	}
 
 	@Bean
-	MessageConverter filmReturnedEventConverter(final ObjectMapper jacksonObjectMapper) {
-		MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
-		converter.setObjectMapper(jacksonObjectMapper);
+	MessageConverter filmReturnedEventConverter(
+		final ObjectMapper objectMapper
+	) {
+		MappingJackson2MessageConverter converter 
+			= new MappingJackson2MessageConverter();
+		converter.setObjectMapper(objectMapper);
 		converter.setTargetType(MessageType.TEXT);
 		converter.setTypeIdPropertyName("eventType");
-		final Map<String, Class<?>> f = new HashMap<>();
-		f.put("FilmReturnedEvent", FilmReturnedEvent.class);
-		converter.setTypeIdMappings(f);
+		final Map<String, Class<?>> t 
+			= new HashMap<>();
+		t.put("FilmReturnedEvent", 
+			FilmReturnedEvent.class);
+		converter.setTypeIdMappings(t);
 		return converter;
 	}
 
