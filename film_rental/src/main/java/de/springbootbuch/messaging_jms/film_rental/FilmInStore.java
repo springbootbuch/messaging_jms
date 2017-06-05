@@ -1,4 +1,4 @@
-package de.springbootbuch.messing_jms.film_rental;
+package de.springbootbuch.messaging_jms.film_rental;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
