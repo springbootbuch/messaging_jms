@@ -46,7 +46,7 @@ public class RentalController {
 				.save(new FilmInStore(returnedFilm.getTitle()));
 
 		jmsTemplate.convertAndSend(
-			"returned-films-events", 
+			"returned-film-events", 
 			new FilmReturnedEvent(
 				filmInStore.getId(), 
 				filmInStore.getTitle()

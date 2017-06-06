@@ -80,9 +80,9 @@ public class Application {
 		return registrar -> {
 			final SimpleJmsListenerEndpoint rv
 				= new SimpleJmsListenerEndpoint();
-			rv.setId("returned-films-receiver");
+			rv.setId("returned-film-events-receiver");
 			rv.setMessageListener(filmReturnedEventListener);
-			rv.setDestination("returned-films-events");
+			rv.setDestination("returned-film-events");
 
 			registrar.registerEndpoint(rv);
 		};
