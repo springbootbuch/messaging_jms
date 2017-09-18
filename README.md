@@ -19,19 +19,19 @@ Use default Spring boot configuration and talk to a queue domain
 See the effects of setting `pub-sub-domain` to true
 
 ```
-./mvnw spring-boot:run -Drun.profiles=pubsub
+./mvnw spring-boot:run -Dspring-boot.run.profiles=pubsub
 ```
 
 Alternative destination name based routing in effect:
 
 ```
-./mvnw spring-boot:run -Drun.profiles=destination-router
+./mvnw spring-boot:run -Dspring-boot.run.profiles=destination-router
 ```
 
 Alternative destination management based on separate templates
 
 ```
-./mvnw spring-boot:run -Drun.profiles=distinct-infrastructure
+./mvnw spring-boot:run -Dspring-boot.run.profiles=distinct-infrastructure
 ```
 
 ## Complex scenario
